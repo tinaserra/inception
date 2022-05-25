@@ -1,1 +1,77 @@
 version: '3'
+
+services:
+
+    # DATABASE
+    mariadb:
+      environment:
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      build: 
+        context: requirements/mariadb
+        args:
+          MYSQL_DATABASE: ${MYSQL_DATABASE}
+          MYSQL_USER: ${MYSQL_USER}
+          MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      image: mariadb:mariadb
+      ports:
+        - "3306:3306"
+      restart: always
+      container_name: mariadb
+      networks:
+        - docker-network
+      volumes:
+        - 'mariadb:/var/lib/mysql'
+
+    # NGINX
+    nginx:
+      image: nginx
+      container_name: nginx
+      build: requirements/nginx/
+      restart: always
+      ports:
+        - "443:443"
+      networks:
+        - docker-network
+      depends_on:
+        - wordpress
+      volumes:
+        - 'wordpress:/var/www/'
+
+    # WORDPRESS
+    wordpress:
+      environment:
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_HOST: ${MYSQL_HOST}
+      depends_on:
+        - mariadb
+      build: requirements/wordpress
+      image: wordpress:wordpress
+      volumes:
+        - 'wordpress:/var/www/'
+      ports:
+        - "9000:9000"
+      restart: always
+      container_name: wordpress
+      networks:
+        - docker-network
+
+networks:
+  docker-network:
+
+volumes:
+  mariadb:
+    driver: local
+    driver_opts:
+      o: bind
+      type: ext4
+      device: /home/vserra/data/mariadb
+  wordpress:
+    driver: local
+    driver_opts:
+      o: bind
+      type: ext4
+      device: /home/vserra/data/wordpress
