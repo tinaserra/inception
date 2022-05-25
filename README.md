@@ -19,3 +19,16 @@ De plus:
 * Configurer votre nom de domaine *login.42.fr* afin qu’il pointe vers votre adresse IP locale.
 
 ![Super shéma de la mort](/links/supershema2.png)
+
+| ✅  to do | ❌  ban |
+| :-------- | :------ |
+| travailler dans une machine Virtuelle | ne pas utiliser des *"hacky patch"* à base de ’tail -f’ lors de son exécution |
+| obligatoirement utiliser `docker-compose` | ne  pas utiliser de network `host` ou `--link` ou encore `links` |
+| image Docker du même nom que le service concerné | ne pas démarrer les containers avec une commande faisant tourner une boucle infinie |
+| un `service` = un container dédié = un `Dockerfile` | les commandes comme `entrypoint` |
+| les containers build sous : `Alpine Linux` avec l’avant-dernière version stable, ou `Debian Buster` | `taif -f`, `bash`, `sleep infinity`, `while true`, etc. |
+| Les Dockerfiles appelés dans `docker-compose.yml` par votre `Makefile` (a la racine) | Le tag latest |
+| les fichiers config dans `/srcs/` | pas de **mot de passe** apparent dans les Dokerfiles |
+| un fichier `.env` pour les variables d’environnement | ne pas utiliser de services tels que `DockerHub` |
+| le container `NGINX` doit être le seul point d’entrée par le port 443 | ne pas prendre des images toutes faites (Alpine et Debian étant exclus de cette règle) |
+| utiliser le protocole `TLSv1.2` ou `TLSv1.3` | |
