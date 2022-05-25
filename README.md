@@ -18,4 +18,4 @@ De plus:
 * L’username de l’Admin ≠ "admin"
 * Configurer votre nom de domaine *login.42.fr* afin qu’il pointe vers votre adresse IP locale.
 
-![Super shéma de la mort](/links/supershema.png)
+![Super shéma de la mort](/links/supershema2.png)
