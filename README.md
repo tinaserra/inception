@@ -4,7 +4,7 @@
 
 Ce projet consiste à mettre en place une mini-infrastructure de différents services en suivant des règles spécifiques en utilisant *docker-compose*.
 
-## 1. Sujet
+## Sujet
 
 Mettre en place :
 * Un **container** contenant `NGINX` avec `TLSv1.2` ou `TLSv1.3` uniquement.
@@ -34,3 +34,29 @@ De plus:
 | Un fichier `.env` pour les variables d’environnement | Ne pas utiliser de services tels que `DockerHub` |
 | Le container `NGINX` doit être le seul point d’entrée par le port 443 | Ne pas prendre des images toutes faites (Alpine et Debian étant exclus de cette règle) |
 | Utiliser le protocole `TLSv1.2` ou `TLSv1.3` | |
+
+## 1. Mettre en place *NGINX*
+installer [Nginx](https://www.youtube.com/watch?v=YD_exb9aPZU)
+
+## 2. Mettre en place *Wordpress*
+
+Installer [Wordpress](https://www.osradar.com/install-wordpress-debian-10/)
+
+## 3. Mettre en place *MariaDB*
+
+Installer [MariaDB](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mariadb-php-lemp-stack-on-debian-10)
+
+## 4. Créez un fichier *docker-compose*
+
+[docker-compose](https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/6211677-creez-un-fichier-docker-compose-pour-orchestrer-vos-conteneurs)
+
+
+
+<!-- ## questions 
+
+C'est quoi deamon ?
+C'est quoi `TLSv1.2` ou `TLSv1.3` ?
+c'est quoi un docker network ?
+c'est quoi les volumes ?
+Comment les containers redemarrent en cas de crash ?
+comment configurer le nom de domaine *login.42.fr* afin qu’il pointe vers l'adresse IP locale ? -->
