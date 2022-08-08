@@ -1,11 +1,11 @@
 DOCKER_COMPOSE_FILE = ./srcs/docker-compose.yml
 # USER42=user42
 
-all:	up
+all: up
 
 up:
-	mkdir -p /home/vserra/data/wordpress
-	mkdir -p /home/vserra/data/mariadb
+	mkdir -p /home/user42/data/wordpress
+	mkdir -p /home/user42/data/mariadb
 	sudo docker-compose -f $(DOCKER_COMPOSE_FILE) --env-file ./srcs/.env up -d --build
 
 stop:
