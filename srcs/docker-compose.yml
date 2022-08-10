@@ -6,13 +6,13 @@ volumes:
     driver_opts:
       o: bind
       type: ext4
-      device: /home/USER42/data/mariadb
+      device: /home/user42/data/mariadb
   wordpress-volume:
     driver: local
     driver_opts:
       o: bind
       type: ext4
-      device: /home/USER42/data/wordpress
+      device: /home/user42/data/wordpress
 
 networks:
   docker-network:
