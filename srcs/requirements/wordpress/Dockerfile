@@ -23,7 +23,7 @@ RUN adduser -H -D -S nginx && addgroup nginx && chown -R nginx:nginx ${WP_DIR}
 COPY ./conf/wp-config.php	${WP_DIR}/html/wp-config.php
 
 # add entrypoint script
-COPY ./scripts/run_wp.sh		/run_wp.sh
+COPY run_wp.sh		/run_wp.sh
 RUN chmod 750 run_wp.sh
 
 ENTRYPOINT [ "sh", "run_wp.sh" ]
