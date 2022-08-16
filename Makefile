@@ -6,7 +6,7 @@ all: up
 up:
 	mkdir -p /home/user42/data/wordpress
 	mkdir -p /home/user42/data/mariadb
-	sudo docker-compose -f $(DOCKER_COMPOSE_FILE) --env-file ./srcs/.env up -d --build
+	docker-compose ./srcs/docker-compose.yml up -d
 
 stop:
 	sudo docker-compose -f $(DOCKER_COMPOSE_FILE) stop
@@ -23,3 +23,6 @@ rm: stop
 re: rm all
 
 .PHONY: all up stop rm re
+
+
+# sudo docker-compose -f $(DOCKER_COMPOSE_FILE) --env-file ./srcs/.env up -d --build
