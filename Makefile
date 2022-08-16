@@ -6,7 +6,7 @@ all: up
 up:
 	mkdir -p /home/user42/data/wordpress
 	mkdir -p /home/user42/data/mariadb
-	docker-compose ./srcs/docker-compose.yml up -d
+	cd ./srcs/ && docker-compose up -d
 
 stop:
 	sudo docker-compose -f $(DOCKER_COMPOSE_FILE) stop
