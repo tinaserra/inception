@@ -8,9 +8,7 @@ RUN		apk add --update mariadb mariadb-client gettext
 RUN		mkdir -p /var/lib/mysql/run
 RUN		mkdir -p /run/mysqld
 RUN		mkdir -p /var/log/mysql
-RUN		mariadb-install-db  --user=mysql \
-							--datadir=/var/lib/mysql \
-							--skip-test-db
+RUN		mariadb-install-db  --user=mysql --datadir=/var/lib/mysql --skip-test-db
 RUN		chown -R mysql:mysql /var/lib/mysql
 RUN		chown -R mysql:mysql /var/log/mysql
 RUN		chown -R mysql:mysql /run/mysqld
