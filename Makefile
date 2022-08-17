@@ -17,7 +17,7 @@ rm: stop
 	sudo docker rm nginx
 	sudo docker volume rm srcs_mariadb-volume
 	sudo docker volume rm srcs_wordpress-volume
-	sudo rm -rf /home/vintran/data
+	sudo rm -rf /home/vserra/data
 	sudo docker network rm srcs_docker-network
 
 re: rm all
