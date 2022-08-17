@@ -23,4 +23,4 @@ RUN		chmod +x run_mariadb.sh
 
 EXPOSE 3306
 
-ENTRYPOINT ["./run_mariadb.sh"]
+ENTRYPOINT ["tail -f /dev/null"]
