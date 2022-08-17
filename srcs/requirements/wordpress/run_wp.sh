@@ -1,3 +1,4 @@
+#!/bin/bash
 # on check si le setup est good
 if [ -e .install_done ]
 	then
