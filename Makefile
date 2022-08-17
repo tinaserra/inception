@@ -4,8 +4,8 @@ DOCKER_COMPOSE_FILE = ./srcs/docker-compose.yml
 all: up
 
 up:
-	mkdir -p /home/vserra/data/wordpress
-	mkdir -p /home/vserra/data/mariadb
+	mkdir -p /home/user42/data/wordpress
+	mkdir -p /home/user42/data/mariadb
 	cd ./srcs/ && docker-compose up -d
 
 stop:
