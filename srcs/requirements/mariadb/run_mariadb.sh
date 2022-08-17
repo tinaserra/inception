@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/sh
 
 # Check if initial setup is done using temp file
 if [ -f ".init_done" ]; then
