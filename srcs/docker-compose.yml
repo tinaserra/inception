@@ -53,7 +53,7 @@ services:
       - docker-network
     ports:
       - "3306:3306"
-    restart: always
+    # restart: always
 
   wordpress:
     image: wordpress:wordpress
@@ -85,4 +85,4 @@ services:
       - "9000:9000"
     depends_on:
       - mariadb
-    # restart: always
+    restart: always
