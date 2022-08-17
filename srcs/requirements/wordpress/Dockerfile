@@ -1,6 +1,5 @@
 FROM alpine:3.15
 
-
 RUN apk update
 RUN apk add --update mariadb-client wget
 RUN apk add --update php php-fpm php-mysqli php-common php-cli php-phar
