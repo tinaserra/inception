@@ -1,3 +1,4 @@
+#!/bin/bash
 # Check if initial setup is done using temp file
 if [ -f ".init_done" ]; then
     echo "init done"
