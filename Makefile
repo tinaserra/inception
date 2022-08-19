@@ -12,7 +12,6 @@ stop:
 
 rm: stop
 	sudo rm -rf /home/vserra/data
-	sudo docker network rm srcs_docker-network
 
 re: rm all
 
