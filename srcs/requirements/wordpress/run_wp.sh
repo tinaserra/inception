@@ -5,9 +5,9 @@ if [ -e .install_done ]
 	then
 		echo "Wordpress is already installed"
 	else
-		# Wait for MARIADB container
+		# Wait MARIADB container
 		sleep 5;
-		# Check that the connection is established using mysqladmin ping
+		# Check la connection avec mysqladmin ping
 		if ! mysqladmin --host=$MARIADB_HOST \
 						--user=$MARIADB_USER \
 						--password=$MARIADB_USER_PWD \
@@ -15,7 +15,7 @@ if [ -e .install_done ]
 			echo "ERROR : SQL not connected"
 			exit 1;
 		else
-			# Install and init Wordpress using the CLI
+			# Installation Wordpress
 			wp core install --path=${WP_DIR}/html \
 			--url=${WP_URL} \
 			--title=Inception \
@@ -23,7 +23,7 @@ if [ -e .install_done ]
 			--admin_password=${WP_ADMIN_PWD} \
 			--admin_email=${WP_ADMIN_EMAIL} \
 			--skip-email
-			# Create 2nd user
+			# Creer 2eme user
 			wp user create --path=${WP_DIR}/html ${WP_USER} ${WP_USER_EMAIL} --role=author --user_pass=${WP_USER_PWD}
 			# create a temp file
 			touch .install_done

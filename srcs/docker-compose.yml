@@ -17,6 +17,8 @@ volumes:
 networks:
   docker-network:
 
+# NGINX ------------------------------------------------------- #
+
 services:
   nginx:
     image: nginx:nginx
@@ -36,6 +38,8 @@ services:
       - wordpress
     restart: always
 
+# MARIABD ----------------------------------------------------- #
+
   mariadb:
     image: mariadb:mariadb
     container_name: mariadb
@@ -54,6 +58,8 @@ services:
     # ports:
     #   - "3306:3306"
     restart: always
+
+# WORDPRESS --------------------------------------------------- #
 
   wordpress:
     image: wordpress:wordpress

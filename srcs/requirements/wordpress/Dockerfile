@@ -1,5 +1,7 @@
+# Image de base
 FROM alpine:3.15
 
+# Prerequis
 RUN apk update
 RUN apk add --update mariadb-client wget
 RUN apk add --update php php-fpm php-mysqli php-common php-cli php-phar
@@ -15,13 +17,12 @@ RUN wp core download --locale=en_US --path=${WP_DIR}/html
 COPY ./conf/php-fpm.conf	/etc/php7/php-fpm.conf
 COPY ./conf/www.conf		/etc/php7/php-fpm.d/www.conf
 
-# Create user (CLI can't be use with root)
+# Creation user (adduser)
 RUN adduser -H -D -S nginx && addgroup nginx && chown -R nginx:nginx ${WP_DIR}
 
-# add wp_config
+# Config wordpress
 COPY ./conf/wp-config.php	${WP_DIR}/html/wp-config.php
 
-# add entrypoint script
 COPY run_wp.sh		/run_wp.sh
 RUN chmod 750 run_wp.sh
 

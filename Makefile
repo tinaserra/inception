@@ -1,5 +1,4 @@
 DOCKER_COMPOSE_FILE = ./srcs/docker-compose.yml
-# USER42=user42
 
 all: up
 
@@ -23,6 +22,3 @@ rm: stop
 re: rm all
 
 .PHONY: all up stop rm re
-
-
-# sudo docker-compose -f $(DOCKER_COMPOSE_FILE) --env-file ./srcs/.env up -d --build
