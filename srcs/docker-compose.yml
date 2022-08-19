@@ -51,8 +51,8 @@ services:
       - MARIADB_USER_PWD=${MARIADB_USER_PWD}
     networks:
       - docker-network
-    ports:
-      - "3306:3306"
+    # ports:
+    #   - "3306:3306"
     restart: always
 
   wordpress:
@@ -83,8 +83,8 @@ services:
       docker-network:
         aliases:
           - wordpress
-    ports:
-      - "9000:9000"
+    # ports:
+    #   - "9000:9000"
     depends_on:
       - mariadb
     restart: always
