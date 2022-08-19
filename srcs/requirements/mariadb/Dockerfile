@@ -2,15 +2,15 @@
 FROM	alpine:3.15
 
 # Prerequis
-RUN		apk update \
-&&		apk add --update mariadb mariadb-client gettext \
-&&		mkdir -p /var/lib/mysql/run \
-&&		mkdir -p /run/mysqld \
-&&		mkdir -p /var/log/mysql \
-&&		mariadb-install-db  --user=mysql --datadir=/var/lib/mysql --skip-test-db
-RUN		chown -R mysql:mysql /var/lib/mysql \
-&&		chown -R mysql:mysql /var/log/mysql \
-&&		chown -R mysql:mysql /run/mysqld \
+RUN		apk update
+RUN		apk add --update mariadb mariadb-client gettext
+RUN		mkdir -p /var/lib/mysql/run
+RUN		mkdir -p /run/mysqld
+RUN		mkdir -p /var/log/mysql
+RUN		mariadb-install-db  --user=mysql --datadir=/var/lib/mysql --skip-test-db
+RUN		chown -R mysql:mysql /var/lib/mysql
+RUN		chown -R mysql:mysql /var/log/mysql
+RUN		chown -R mysql:mysql /run/mysqld
 
 # Copy conf
 COPY	mariadb.conf /etc/my.cnf.d/mariadb-server.cnf
