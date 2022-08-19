@@ -8,7 +8,7 @@ up:
 	sudo docker-compose -f $(DOCKER_COMPOSE_FILE) --env-file ./srcs/.env up -d --build
 
 stop:
-	sudo docker-compose -f $(DOCKER_COMPOSE_FILE) stop
+	sudo docker-compose -f $(DOCKER_COMPOSE_FILE) down --volume
 
 rm: stop
 	sudo docker rm mariadb
