@@ -11,9 +11,6 @@ stop:
 	sudo docker-compose -f $(DOCKER_COMPOSE_FILE) down --volumes
 
 rm: stop
-	sudo docker rm mariadb
-	sudo docker rm wordpress
-	sudo docker rm nginx
 	sudo docker volume rm srcs_mariadb-volume
 	sudo docker volume rm srcs_wordpress-volume
 	sudo rm -rf /home/vserra/data
