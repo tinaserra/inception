@@ -86,11 +86,9 @@ services:
     volumes:
       - wordpress-volume:${WP_DIR}
     networks:
-      - docker-network
-    # networks:
-    #   docker-network:
-    #     aliases:
-    #       - wordpress
+      docker-network:
+        aliases:
+          - wordpress
     # ports:
     #   - "9000:9000"
     depends_on:
