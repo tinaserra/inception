@@ -4,6 +4,24 @@
 
 Ce projet consiste à mettre en place une mini-infrastructure de différents services en suivant des règles spécifiques en utilisant *docker-compose*.
 
+## Usage
+
+1. Creer sa propre vm et installer la derniere version de docker-compose
+
+OU
+
+2. Dans la vm de salty:
+- Desinstaller docker-compose
+- installer la derniere version de docker-compose
+- Faire `service stop nginx` (A chaque fois que tu demarre la vm)
+- Faire `service stop mysql` (A chaque fois que tu demarre la vm)
+
+3. Start
+
+- Compiler `make`
+- Stopper les conteners `make stop`
+- Dans le navigateur : `localhost`, `127.0.0.1`, `https://vserra.42.fr`, `https://vserra.42.fr/wp-admin/`
+
 ## Sujet
 
 Mettre en place :
@@ -24,7 +42,7 @@ De plus:
 
 | ✅  to do | ❌  ban |
 | :-------- | :------ |
-| Travailler dans une machine Virtuelle | Ne pas utiliser des *"hacky patch"* à base de `tail -f` lors de son exécution |
+| Travailler dans une machine Virtuelle | Ne pas utiliser des *"hacky patch"* à base de ` -f` lors de son exécution |
 | Obligatoirement utiliser `docker-compose` | Ne pas utiliser de network `host` ou `--link` ou encore `links` |
 | Image Docker du même nom que le service concerné | Ne pas démarrer les containers avec une commande faisant tourner une boucle infinie |
 | Un `service` = un container dédié = un `Dockerfile` | Ne pas utiliser les commandes comme `entrypoint` |
@@ -35,14 +53,15 @@ De plus:
 | Le container `NGINX` doit être le seul point d’entrée par le port 443 | Ne pas prendre des images toutes faites (Alpine et Debian étant exclus de cette règle) |
 | Utiliser le protocole `TLSv1.2` ou `TLSv1.3` | |
 
-## 1. Mettre en place *NGINX*
+
+### 1. Mettre en place *NGINX*
 installer [Nginx](https://www.youtube.com/watch?v=YD_exb9aPZU)
 
-## 2. Mettre en place *Wordpress*
+### 2. Mettre en place *Wordpress*
 
 Installer [Wordpress](https://www.osradar.com/install-wordpress-debian-10/)
 
-## 3. Mettre en place *MariaDB*
+### 3. Mettre en place *MariaDB*
 
 Installer [MariaDB](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mariadb-php-lemp-stack-on-debian-10)
 
